@@ -2,20 +2,19 @@
 - hosts: all
 	
  tasks:
+ - name: get the username running the deploy
+   become: false
+   local_action: command hostname
+   register: hostname_instance
 
-	- name: get the username running the deploy
-	  become: false
-	  local_action: command hostname
-	  register: hostname_instance
+ - debug: var=hostname_instance
 
-	- debug: var=hostname_instance
+ - name: Copy local file
+   copy:
+   src: /var/log/messages
+   dest: /var/log/messages.{{ hostname_instance }}
 
-	- name: Copy local file
-	  copy:
-	  src: /var/log/messages
-	  dest: /var/log/messages.{{ hostname_instance }}
-
-	- name: Synchronization using rsync protocol (push)
-	  synchronize:
-	  src: /var/log/messages.{{ hostname_instance }}
-	  dest: rsync://rh8tower01/datas/logs/ansible-compliance/
+ - name: Synchronization using rsync protocol (push)
+   synchronize:
+   src: /var/log/messages.{{ hostname_instance }}
+   dest: rsync://rh8tower01/datas/logs/ansible-compliance/
