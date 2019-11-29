@@ -19,4 +19,4 @@
     synchronize:
       src: /var/log/messages.{{ hostname_instance }}
       dest: /datas/logs/ansible-compliance/{{ inventory_hostname }}.messages.log
-    delegate_to: {{ inventory_hostname }}
+    delegate_to: "{{ inventory_hostname }}"
