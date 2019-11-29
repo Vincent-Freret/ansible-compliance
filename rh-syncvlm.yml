@@ -18,4 +18,5 @@
   - name: Synchronization using rsync protocol (push)
     synchronize:
       src: /var/log/messages.{{ hostname_instance }}
-      dest: rsync://rh8tower01/datas/logs/ansible-compliance/
+      dest: /datas/logs/ansible-compliance/
+    delegate_to: rh8tower01
