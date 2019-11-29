@@ -1,7 +1,7 @@
 ---
 - hosts: all
 
- tasks:
+   tasks:
  - name: get the username running the deploy
    become: false
    local_action: command hostname
