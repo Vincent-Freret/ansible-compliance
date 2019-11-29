@@ -28,4 +28,4 @@
       fetch:
         src: /tmp/oscap-report.html
         dest: ../oscap-reports/{{ inventory_hostname }}.html
-flat: yes
+
