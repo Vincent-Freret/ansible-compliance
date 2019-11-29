@@ -5,8 +5,8 @@
 
   - name: get the username running the deploy
     become: false
-      local_action: command hostname
-      register: hostname_instance
+    local_action: command hostname
+    register: hostname_instance
 
   - debug: var=hostname_instance
 
