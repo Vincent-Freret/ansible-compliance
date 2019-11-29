@@ -25,6 +25,6 @@
         /usr/share/xml/scap/ssg/content/{{ oscap_policy }}.xml
 
   - name: Synchronization using rsync protocol (push)
-      synchronize:
-        src: /tmp/{{ oscap_profile }}*
-        dest: rsync://rh8tower01/datas/logs/ansible-compliance/
+    synchronize:
+      src: /tmp/{{ oscap_profile }}*
+      dest: rsync://rh8tower01/datas/logs/ansible-compliance/
