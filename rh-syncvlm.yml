@@ -15,8 +15,8 @@
       src: /var/log/messages
       dest: /var/log/messages.{{ hostname_instance }}
 
-  - name: Synchronization using rsync protocol (push)
-    synchronize:
-      src: /var/log/messages.{{ hostname_instance }}
-      dest: /datas/logs/ansible-compliance/{{ inventory_hostname }}.messages.log
-    delegate_to: "{{ inventory_hostname }}"
+#  - name: Synchronization using rsync protocol (push)
+#    synchronize:
+#      src: /var/log/messages.{{ hostname_instance }}
+#      dest: /datas/logs/ansible-compliance/{{ inventory_hostname }}.messages.log
+#    delegate_to: "{{ inventory_hostname }}"
